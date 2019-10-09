@@ -1,6 +1,6 @@
 import { getRandomInt } from '../utilities/randomNumber';
 
-enum FlagIcons {
+export enum FlagIcons {
   flower = '⚘',
   heart = '❤',
   sun = '☀',

@@ -1,8 +1,7 @@
 <div class="vrt-flag-filter">
   Filters:
-  <div class="vrt-flag-filter__flag" *ngFor="let flag of flagsList">
-    <label>
-      <input type="checkbox" [checked]="flagsList[flag]" (change)="onFlagChange(flag)">{{ flag }}
-    </label>
+  <div class="vrt-flag-filter__flag" *ngFor="let flag of flagsState | keyvalue">
+    <input [id]="flag.key" type="checkbox" [checked]="flag.value" (change)="onFlagChange(flag.key)">
+    <label [for]="flag.key" class="vrt-flag-filter__label">{{ flagIcons[flag.key] }}</label>
   </div>
 </div>

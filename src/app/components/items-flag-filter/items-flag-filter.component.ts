@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
-import { flags } from 'src/app/data/Item.dto';
+import { flags, FlagIcons } from 'src/app/data/Item.dto';
 
 @Component({
   selector: 'vrt-items-flag-filter',
@@ -12,6 +12,7 @@ export class ItemsFlagFilterComponent implements OnInit {
   @Output() onFilterChange: EventEmitter<object> = new EventEmitter();
   public flagsState: object = {};
   public flagsList: string[] = flags;
+  public flagIcons: any = FlagIcons;
 
   ngOnInit(): void {
     flags.forEach((flag: string) => {

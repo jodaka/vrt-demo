@@ -1,3 +1,26 @@
 .vrt-flag-filter {
   display: flex;
+
+  &__flag {
+
+
+    input[type=checkbox] {
+      visibility: hidden;
+
+      &:checked + label {
+        color: #5698fc;
+      }
+    }
+  }
+
+  &__label {
+    cursor: pointer;
+    &:hover {
+      text-shadow:
+        0 0 0px #fff,
+        0 0 10px #fff,
+        0 0 20px #5698fc,
+        0 0 30px #5698fc
+    }
+  }
 }
