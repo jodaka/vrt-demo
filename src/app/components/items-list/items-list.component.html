@@ -2,8 +2,12 @@
   <div class="vrt-items-list__filters">
     <ng-content></ng-content>
   </div>
-  <div class="vrt-items-list__container">
+  <div class="vrt-items-list__container"
+    cdkDropList
+    [cdkDropListData]="items"
+    (cdkDropListDropped)="onItemDrop($event)">
     <vrt-list-item
+      cdkDrag
       *ngFor="let item of items"
       (click)="selectItem(item)"
       [item]="item">

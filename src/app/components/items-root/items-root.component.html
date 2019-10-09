@@ -1,7 +1,8 @@
-<div class="vrt-root">
+<div class="vrt-root" cdkDropListGroup>
   <div class="vrt-column">
     <vrt-items-list
       (onItemSelected)="onItemSelected($event)"
+      (onDragNDrop)="onDragNDrop($event)"
       [items]="leftColumnFilteredItems">
         <div class="vrt-sort-filter">
           Sort:
@@ -21,6 +22,7 @@
   <div class="vrt-column">
     <vrt-items-list
       (onItemSelected)="onItemSelected($event)"
+      (onDragNDrop)="onDragNDrop($event)"
       [items]="rightColumnFilteredItems">
       <vrt-items-flag-filter (onFilterChange)="onFlagFilterChange($event)"></vrt-items-flag-filter>
     </vrt-items-list>

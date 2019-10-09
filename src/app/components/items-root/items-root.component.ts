@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Item, Flag } from 'src/app/data/Item.dto';
 import { ItemsService } from 'src/app/data/items.service';
+import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 
 const INITIAL_COLUMN_COUNT = 100;
 
@@ -72,4 +73,12 @@ export class ItemsRootComponent implements OnInit {
     this.nameFilterValue = nameSubstring;
     this.filterAndSortLeftColumn();
   }
+
+  onDragNDrop(event: CdkDragDrop<string[]>): void {
+    if (event.previousContainer !== event.container) {
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+      this.filterAndSortLeftColumn();
+    }
+  }
+
 }

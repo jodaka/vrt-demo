@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ItemsRootComponent } from './components/items-root/items-root.component';
 import { ItemsListComponent } from './components/items-list/items-list.component';
 import { ListItemComponent } from './components/list-item/list-item.component';
@@ -19,6 +19,7 @@ import { ItemsNameFilterComponent } from './components/items-name-filter/items-n
     ItemsNameFilterComponent
   ],
   imports: [
+    DragDropModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule

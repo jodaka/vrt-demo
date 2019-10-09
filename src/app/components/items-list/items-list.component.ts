@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from 'src/app/data/Item.dto';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'vrt-items-list',
@@ -10,6 +11,7 @@ import { Item } from 'src/app/data/Item.dto';
 export class ItemsListComponent {
   @Input() items: Item[] = [];
   @Output() onItemSelected: EventEmitter<Item> = new EventEmitter();
+  @Output() onDragNDrop:  EventEmitter<CdkDragDrop<string[]>> = new EventEmitter();
 
   public isSelectedItem: boolean;
 
@@ -17,5 +19,9 @@ export class ItemsListComponent {
 
   selectItem(item: Item): void {
     this.onItemSelected.emit(item);
+  }
+
+  onItemDrop(event: CdkDragDrop<string[]>): void {
+    this.onDragNDrop.emit(event);
   }
 }
