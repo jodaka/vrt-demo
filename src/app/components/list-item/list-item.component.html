@@ -1,0 +1,5 @@
+<div class="vrt-list-item"
+  [ngClass]="{'vrt-list-item--selected': item.isSelected }">
+  <div class="vrt-list-item__name">{{ item.name }}</div>
+  <div class="vrt-list-item__flags">{{ item.getFlagsIcons() }}</div>
+</div>

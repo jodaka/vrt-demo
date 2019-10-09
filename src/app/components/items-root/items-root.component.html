@@ -1,0 +1,11 @@
+<div class="vrt-items-root">
+  <vrt-items-list
+    (onItemSelected)="onItemSelected($event)"
+    [items]="leftColumn">
+  </vrt-items-list>
+  <vrt-item-details [item]="selectedItem"></vrt-item-details>
+  <vrt-items-list
+    (onItemSelected)="onItemSelected($event)"
+    [items]="rightColumn">
+  </vrt-items-list>
+</div>

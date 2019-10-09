@@ -1,0 +1,20 @@
+<div class="vrt-item-details">
+  <div class="vrt-item-details--empty" *ngIf="!item">
+    No item selected
+  </div>
+
+  <ng-container *ngIf="item">
+    <h3 class="vrt-item-details__title">Info</h3>
+
+    <div class="vrt-item-details-entity">
+      <div class="vrt-item-details-entity__name">Name:</div>
+      <div class="vrt-item-details-entity__value">{{ item.name }}</div>
+    </div>
+
+    <div class="vrt-item-details-entity">
+      <div class="vrt-item-details-entity__name">Flags:</div>
+      <div class="vrt-item-details-entity__value">{{ item.getFlagsIcons() }}</div>
+    </div>
+
+  </ng-container>
+</div>

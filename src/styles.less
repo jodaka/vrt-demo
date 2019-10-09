@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #000;
+  color: #fff;
+}
+
+body, input, button, textarea {
+  font-family: Roboto, "PT Sans", "Lucida Grande", Helvetica, "San Francisco", "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.vrt-loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  &__logo {
+    animation: fadeIn 0.8s ease-out;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background: url('https://d3n32ilufxuvd1.cloudfront.net/573d87a4890017a06b1e449a/1219011/upload-52b48a70-f271-11e8-9115-97693db4cc9e.png') 50% no-repeat;
+  }
+}
