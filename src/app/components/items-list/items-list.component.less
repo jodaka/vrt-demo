@@ -1,4 +1,30 @@
 .vrt-items-list {
-  padding: 1em;
-  background-color: #333;
+  padding: 20px 30px 20px 30px;
+  background-color: #080f15;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+
+  &__filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &__container {
+    overflow: auto;
+    position: absolute;
+    top: 65px;
+    bottom: 0;
+    left: 30px;
+    right: 15px;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #151f2e;
+    }
+  }
 }

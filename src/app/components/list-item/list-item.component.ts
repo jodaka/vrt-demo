@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, ViewEncapsulation, Input } from '@angular/core';
 import { Item } from 'src/app/data/Item.dto';
 
 @Component({
@@ -9,7 +9,4 @@ import { Item } from 'src/app/data/Item.dto';
 })
 export class ListItemComponent {
   @Input() item: Item = null;
-
-  constructor () { }
-
 }

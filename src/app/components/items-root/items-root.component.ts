@@ -14,12 +14,11 @@ export class ItemsRootComponent implements OnInit {
 
   public leftColumnItems: Item[] = [];
   public rightColumnItems: Item[] = [];
-
   public leftColumnFilteredItems: Item[] = [];
   public rightColumnFilteredItems: Item[] = [];
-
   public selectedItem: Item = null;
-  public isSortByAsc: boolean = false;
+  public isSortByAsc: boolean = true;
+  private nameFilterValue: string = '';
 
   constructor (
     private itemsService: ItemsService
@@ -30,8 +29,8 @@ export class ItemsRootComponent implements OnInit {
     this.leftColumnItems = this.itemsService.generateItems(INITIAL_COLUMN_COUNT);
     this.rightColumnItems = this.rightColumnFilteredItems = this.itemsService.generateItems(INITIAL_COLUMN_COUNT);
 
-    this.changeSorting();
-    this.onItemSelected(this.leftColumnItems[0]);
+    this.filterAndSortLeftColumn();
+    this.onItemSelected(this.leftColumnFilteredItems[0]);
   }
 
   onFlagFilterChange(filterState: object): void {
@@ -48,7 +47,16 @@ export class ItemsRootComponent implements OnInit {
 
   changeSorting(): void {
     this.isSortByAsc = !this.isSortByAsc;
-    this.leftColumnFilteredItems = this.itemsService.sortItemsByName(this.isSortByAsc, this.leftColumnItems);
+    this.filterAndSortLeftColumn();
+  }
+
+  filterAndSortLeftColumn(): void {
+    const re = new RegExp(this.nameFilterValue, 'i');
+    const filteredItems = this.leftColumnItems.filter((item: Item) => {
+      return re.test(item.name);
+    });
+
+    this.leftColumnFilteredItems = this.itemsService.sortItemsByName(this.isSortByAsc, filteredItems);
   }
 
   onItemSelected(item: Item): void {
@@ -58,5 +66,10 @@ export class ItemsRootComponent implements OnInit {
 
     item.isSelected = true;
     this.selectedItem = item;
+  }
+
+  onNameFilterChange(nameSubstring: string): void {
+    this.nameFilterValue = nameSubstring;
+    this.filterAndSortLeftColumn();
   }
 }

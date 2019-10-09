@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Item } from './Item.dto';
-import { getRandomInt } from '../utilities/randomNumber';
+import { getRandomInt } from 'src/app/utilities/randomNumber';
 
 // generated here http://listofrandomnames.com/
 const dummyNames = [

@@ -4,8 +4,13 @@
       (onItemSelected)="onItemSelected($event)"
       [items]="leftColumnFilteredItems">
         <div class="vrt-sort-filter">
-          Sort: <input type="checkbox" [checked]="isSortByAsc" (change)="changeSorting()" />
+          Sort:
+          <div class="vrt-checkbox">
+            <input type="checkbox" [checked]="isSortByAsc" (change)="changeSorting()" id="sortCheckbox" />
+            <label for="sortCheckbox"></label>
+          </div>
         </div>
+        <vrt-items-name-filter (onTextFilterChange)="onNameFilterChange($event)"></vrt-items-name-filter>
     </vrt-items-list>
   </div>
 

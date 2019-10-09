@@ -1,9 +1,12 @@
 <div class="vrt-items-list">
-  <ng-content class="vrt-items-list__filters"></ng-content>
-  <ng-container *ngFor="let item of items">
+  <div class="vrt-items-list__filters">
+    <ng-content></ng-content>
+  </div>
+  <div class="vrt-items-list__container">
     <vrt-list-item
+      *ngFor="let item of items"
       (click)="selectItem(item)"
       [item]="item">
     </vrt-list-item>
-  </ng-container>
+  </div>
 </div>
