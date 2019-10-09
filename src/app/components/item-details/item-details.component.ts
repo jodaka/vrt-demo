@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input, OnChanges } from '@angular/core';
+import { Component, ViewEncapsulation, Input } from '@angular/core';
 import { Item } from 'src/app/data/Item.dto';
 
 @Component({
@@ -7,15 +7,6 @@ import { Item } from 'src/app/data/Item.dto';
   styleUrls: ['./item-details.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class ItemDetailsComponent implements OnInit, OnChanges {
-
+export class ItemDetailsComponent {
   @Input() item: Item = null;
-  constructor () { }
-
-  ngOnInit(): void {
-  }
-
-  ngOnChanges(changes: any): void {
-    console.log(11111, changes); // eslint-disable-line
-  }
 }

@@ -1,6 +1,5 @@
+import { getRandomInt } from '../utilities/randomNumber';
 
-export const flags = ['flower' , 'heart' , 'sun' , 'flash'];
-export type Flag = 'flower' | 'heart' | 'sun' | 'flash';
 enum FlagIcons {
   flower = '❁',
   heart = '❤',
@@ -8,11 +7,8 @@ enum FlagIcons {
   flash = '⚡'
 }
 
-function getRandomInt(min: number, max: number): number {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+export const flags = ['flower' , 'heart' , 'sun' , 'flash'];
+export type Flag = 'flower' | 'heart' | 'sun' | 'flash';
 
 export class Item {
   constructor (
@@ -21,9 +17,8 @@ export class Item {
     public isSelected: boolean
   ) {}
 
-  public static buildRandom(nameCounter: number): Item {
+  public static buildRandom(itemName: string): Item {
 
-    const itemName = `Item ${nameCounter}`;
     const itemFlags: Set<Flag> = new Set();
 
     const flagsCount = getRandomInt(0, flags.length);
