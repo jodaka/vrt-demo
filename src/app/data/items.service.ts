@@ -15,4 +15,17 @@ export class ItemsService {
     }
     return items;
   }
+
+  sortItemsByName(isAsc: boolean, items: Item[]): Item[] {
+    items.sort((a: Item, b: Item): number => {
+      if (a.name < b.name) {
+        return isAsc ? -1 : 1;
+      }
+      if (a.name > b.name) {
+        return isAsc ? 1 : -1;
+      }
+      return 0;
+    });
+    return items;
+  }
 }

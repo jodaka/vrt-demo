@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { Item } from 'src/app/data/Item.dto';
+import { Item, Flag } from 'src/app/data/Item.dto';
 import { ItemsService } from 'src/app/data/items.service';
 
 const INITIAL_COLUMN_COUNT = 100;
@@ -12,9 +12,14 @@ const INITIAL_COLUMN_COUNT = 100;
 })
 export class ItemsRootComponent implements OnInit {
 
-  public leftColumn: Item[] = [];
-  public rightColumn: Item[] = [];
+  public leftColumnItems: Item[] = [];
+  public rightColumnItems: Item[] = [];
+
+  public leftColumnFilteredItems: Item[] = [];
+  public rightColumnFilteredItems: Item[] = [];
+
   public selectedItem: Item = null;
+  public isSortByAsc: boolean = false;
 
   constructor (
     private itemsService: ItemsService
@@ -22,10 +27,28 @@ export class ItemsRootComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.leftColumn = this.itemsService.generateItems(INITIAL_COLUMN_COUNT);
-    this.rightColumn = this.itemsService.generateItems(INITIAL_COLUMN_COUNT);
-    this.onItemSelected(this.leftColumn[0]);
-    console.log(111, this.selectedItem); // eslint-disable-line
+    this.leftColumnItems = this.itemsService.generateItems(INITIAL_COLUMN_COUNT);
+    this.rightColumnItems = this.rightColumnFilteredItems = this.itemsService.generateItems(INITIAL_COLUMN_COUNT);
+
+    this.changeSorting();
+    this.onItemSelected(this.leftColumnItems[0]);
+  }
+
+  onFlagFilterChange(filterState: object): void {
+    const activeFlags = Object.keys(filterState).filter((flag: string) => filterState[flag]);
+    this.rightColumnFilteredItems = this.rightColumnItems.filter((item: Item) => {
+      for (let i = 0; i < activeFlags.length; i++) {
+        if (!item.flags.has(activeFlags[i] as Flag)) {
+          return false;
+        }
+      }
+      return true;
+    });
+  }
+
+  changeSorting(): void {
+    this.isSortByAsc = !this.isSortByAsc;
+    this.leftColumnFilteredItems = this.itemsService.sortItemsByName(this.isSortByAsc, this.leftColumnItems);
   }
 
   onItemSelected(item: Item): void {

@@ -1,6 +1,6 @@
 
-const flags = ['flower' , 'heart' , 'sun' , 'flash'];
-type Flag = 'flower' | 'heart' | 'sun' | 'flash';
+export const flags = ['flower' , 'heart' , 'sun' , 'flash'];
+export type Flag = 'flower' | 'heart' | 'sun' | 'flash';
 enum FlagIcons {
   flower = '❁',
   heart = '❤',
