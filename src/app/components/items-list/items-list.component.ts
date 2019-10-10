@@ -18,4 +18,11 @@ export class ItemsListComponent {
   selectItem(item: Item): void {
     this.onItemSelected.emit(item);
   }
+
+  trackByFn(index: number, item: Item): number {
+    if (!item) {
+      return null;
+    }
+    return index;
+  }
 }
