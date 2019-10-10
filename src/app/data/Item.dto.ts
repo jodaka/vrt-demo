@@ -1,11 +1,11 @@
 import { getRandomInt } from '../utilities/randomNumber';
 
-export enum FlagIcons {
-  flower = '⚘',
-  heart = '❤',
-  sun = '☀',
-  flash = '⌁'
-}
+export const FlagIcons = {
+  flower : '⚘',
+  heart : '❤',
+  sun : '☀',
+  flash : '⌁'
+};
 
 export const flags = ['flower' , 'heart' , 'sun' , 'flash'];
 export type Flag = 'flower' | 'heart' | 'sun' | 'flash';

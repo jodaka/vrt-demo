@@ -11,12 +11,13 @@ export class ItemsFlagFilterComponent implements OnInit {
 
   @Output() onFilterChange: EventEmitter<object> = new EventEmitter();
   public flagsState: object = {};
-  public flagsList: string[] = flags;
-  public flagIcons: any = FlagIcons;
+  public flagsList: string[] = [];
+  public flagIcons: object = FlagIcons;
 
   ngOnInit(): void {
     flags.forEach((flag: string) => {
       this.flagsState[ flag ] = false;
+      this.flagsList.push(flag);
     });
   }
 

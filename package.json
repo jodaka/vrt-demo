@@ -4,7 +4,7 @@
   "scripts": {
     "start": "ng serve",
     "serve-aot": "ng serve --aot",
-    "build": "npm run build",
+    "build": "ng build --prod",
     "lint": "ng lint"
   },
   "private": true,
